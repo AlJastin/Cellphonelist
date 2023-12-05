@@ -94,7 +94,7 @@
                     app:srcCompat="@drawable/ellipse_2" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/submit"
                     android:layout_width="142dp"
                     android:layout_height="48dp"
                     android:backgroundTint="#C9C7C7"
@@ -182,8 +182,8 @@
                     android:layout_height="50dp"
                     android:background="@null"
                     android:ems="10"
+                    android:hint="PHONE MODEL:"
                     android:inputType="text"
-                    android:text="PHONE MODEL:"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -194,13 +194,13 @@
                     app:layout_constraintVertical_bias="0.425" />
 
                 <EditText
-                    android:id="@+id/editTextText2"
+                    android:id="@+id/price"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
                     android:ems="10"
+                    android:hint="PRICE:"
                     android:inputType="text"
-                    android:text="PRICE:"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -210,13 +210,13 @@
                     app:layout_constraintVertical_bias="0.517" />
 
                 <EditText
-                    android:id="@+id/editTextText3"
+                    android:id="@+id/os"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
                     android:ems="10"
+                    android:hint="OS:"
                     android:inputType="text"
-                    android:text="OS:"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -227,13 +227,13 @@
                     app:layout_constraintVertical_bias="0.629" />
 
                 <EditText
-                    android:id="@+id/editTextText4"
+                    android:id="@+id/specs"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
                     android:ems="10"
+                    android:hint="SPECS:"
                     android:inputType="text"
-                    android:text="SPECS:"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

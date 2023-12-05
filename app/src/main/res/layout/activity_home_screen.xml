@@ -84,7 +84,7 @@
             app:srcCompat="@drawable/ellipse_2" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/submit"
             android:layout_width="142dp"
             android:layout_height="48dp"
             android:backgroundTint="#C9C7C7"

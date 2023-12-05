@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Table_screen">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".home_screen">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -118,6 +115,8 @@
                 app:layout_constraintVertical_bias="0.088"
                 app:srcCompat="@drawable/cellphone_list" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
