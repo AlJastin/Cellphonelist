@@ -38,22 +38,33 @@ public class ADD_Screen extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneModelTXT = phoneModel.getText().toString();
-                String priceTXT = price.getText().toString();
-                String osTXT = os.getText().toString();
-                String specsTXT = specs.getText().toString();
+                String phoneModelTXT = phoneModel.getText().toString().trim();
+                String priceTXT = price.getText().toString().trim();
+                String osTXT = os.getText().toString().trim();
+                String specsTXT = specs.getText().toString().trim();
 
-                Boolean checkinsertdata = DB.insertuserdata(phoneModelTXT, priceTXT, osTXT, specsTXT);
-                if(checkinsertdata==true)
-                {
-                    Toast.makeText(ADD_Screen.this,"New Phone Inserted", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(ADD_Screen.this,"New Phone Not Inserted", Toast.LENGTH_SHORT).show();
+                if (phoneModelTXT.isEmpty() || priceTXT.isEmpty() || osTXT.isEmpty() || specsTXT.isEmpty()) {
+                    // Show a Toast or alert indicating that fields are empty
+                    Toast.makeText(ADD_Screen.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    // All fields are filled, proceed with insertion
+                    Boolean checkInsertData = DB.insertuserdata(phoneModelTXT, priceTXT, osTXT, specsTXT);
+
+                    if (checkInsertData) {
+                        Toast.makeText(ADD_Screen.this, "New Phone Inserted", Toast.LENGTH_SHORT).show();
+                        // Optionally, clear the input fields after successful insertion
+
+                    } else {
+                        Toast.makeText(ADD_Screen.this, "New Phone Not Inserted", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
+
+// Helper method to clear input fields
+
+
+
 
 
     }

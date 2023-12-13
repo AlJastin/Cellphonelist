@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context) {
-        super(context, "Userdata.db", null, 1);
+        super(context, "Userdata.db", null, 2);
     }
 
     @Override
@@ -49,4 +49,23 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
+    public void deleteUserData(String phoneModelToDelete) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        DB.delete("Userdetails", "phoneModel = ?", new String[]{phoneModelToDelete});
+        DB.close();
+    }
+    public void updateUserData(String phoneModel, String price, String os, String specs) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("phoneModel", phoneModel);
+        contentValues.put("price", price);
+        contentValues.put("os", os);
+        contentValues.put("specs", specs);
+        DB.update("Userdetails", contentValues, "phoneModel=?", new String[]{phoneModel});
+        DB.close();
+    }
+
+
+
+
 }

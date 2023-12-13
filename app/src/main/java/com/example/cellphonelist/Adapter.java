@@ -2,6 +2,7 @@ package com.example.cellphonelist;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +18,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     private Context context;
     private ArrayList phone_model_id, price_id, os_id, specs_id;
 
+
     public Adapter(Context context, ArrayList phone_model_id, ArrayList price_id, ArrayList os_id, ArrayList specs_id) {
         this.context = context;
         this.phone_model_id = phone_model_id;
         this.price_id = price_id;
         this.os_id = os_id;
         this.specs_id = specs_id;
+
     }
 
     @NonNull
@@ -47,6 +50,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 deleteItem(position);
             }
         });
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Fetch the data of the selected item to pass to the edit activity
+                String playerName = String.valueOf(phone_model_id.get(position));
+                String playerPosition = String.valueOf(price_id.get(position));
+                String playerStats = String.valueOf(os_id.get(position));
+                String playerTeam = String.valueOf(specs_id.get(position));
+
+
+                // Create an Intent to navigate to the EditActivity and pass the data
+                Intent intent = new Intent(context, Edit_screen.class);
+                intent.putExtra("phone_model", playerName);
+                intent.putExtra("price", playerPosition);
+                intent.putExtra("OS", playerStats);
+                intent.putExtra("SPECS", playerTeam);
+
+
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -57,19 +82,28 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     // Method to delete an item from the RecyclerView
     private void deleteItem(int position) {
+        DBHelper dbHelper = new DBHelper(context);
+        dbHelper.deleteUserData(String.valueOf(phone_model_id.get(position))); // Assuming player_name is unique and used as a reference for deletion
+
+        // Remove the item from the ArrayList
         phone_model_id.remove(position);
         price_id.remove(position);
         os_id.remove(position);
         specs_id.remove(position);
-        notifyDataSetChanged();
+
+        // Notify the adapter that the data set has changed
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, phone_model_id.size());
     }
+
+
 
 
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView phone_model_id, price_id, os_id, specs_id;
-        ImageView btnDelete;
+        ImageView btnDelete, btnEdit;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +112,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             os_id = itemView.findViewById(R.id.text_os);
             specs_id = itemView.findViewById(R.id.text_SPECS);
             btnDelete = itemView.findViewById(R.id.btn_delete);
+            btnEdit = itemView.findViewById(R.id.btn_edit);
         }
     }
 }

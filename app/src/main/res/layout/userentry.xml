@@ -116,4 +116,12 @@
         android:layout_marginTop="25dp"
         app:srcCompat="@drawable/delete" />
 
+    <ImageView
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginStart="265dp"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/baseline_edit_24" />
+
 </androidx.cardview.widget.CardView>

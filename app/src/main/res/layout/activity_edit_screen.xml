@@ -178,6 +178,7 @@
                     app:srcCompat="@drawable/rectangle_7" />
 
                 <EditText
+                    android:id="@+id/EditPhoneModel"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
@@ -194,7 +195,7 @@
                     app:layout_constraintVertical_bias="0.425" />
 
                 <EditText
-                    android:id="@+id/price"
+                    android:id="@+id/Editprice"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
@@ -210,7 +211,7 @@
                     app:layout_constraintVertical_bias="0.517" />
 
                 <EditText
-                    android:id="@+id/os"
+                    android:id="@+id/Editos"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
@@ -227,7 +228,7 @@
                     app:layout_constraintVertical_bias="0.629" />
 
                 <EditText
-                    android:id="@+id/specs"
+                    android:id="@+id/Editspecs"
                     android:layout_width="264dp"
                     android:layout_height="50dp"
                     android:background="@null"
